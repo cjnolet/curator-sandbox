@@ -17,7 +17,7 @@
     under the License.
 ====
 
-== Service Discovery Server ==
+== Service Discovery LeaderChangedServer ==
 A REST server for use with Curator Service Discovery. This server can be used for non-Java applications
 that need to participate in the Curator Service Discovery.
 

@@ -18,6 +18,7 @@
  */
 package locking;
 
+import leader.MyStateListener;
 import org.apache.curator.utils.CloseableUtils;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
@@ -55,6 +56,8 @@ public class LockingExample
                     public Void call() throws Exception
                     {
                         CuratorFramework        client = CuratorFrameworkFactory.newClient(server.getConnectString(), new ExponentialBackoffRetry(1000, 3));
+                        client.getConnectionStateListenable().addListener(new MyStateListener());
+
                         try
                         {
                             client.start();
